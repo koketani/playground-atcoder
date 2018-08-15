@@ -2,15 +2,14 @@
 using namespace std;
 
 int main() {
-	int y;
-	cin >> y;
-	int x=y;
+	string x;
+	cin >> x;
 	int fx=0;
-	for (int i=8; i>=0; i--) {
-		fx += x/int(powl(10, i));
-		x = x % int(powl(10, i));
+	for (auto s:x) {
+		fx+=s-'0';
 	}
-	if ((y%fx) == 0) {
+	int xx=stoi(x);
+	if ((xx%fx) == 0) {
 		cout << "Yes" << endl;
 	} else {
 		cout << "No" << endl;

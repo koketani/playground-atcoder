@@ -2,8 +2,12 @@
 using namespace std;
 
 int main() {
-	int a;
+	string a;
 	cin >> a;
-	cout << (a/100) + (a%100)/10 + (a%10) << endl;
+	int n=0;
+	for (auto s:a){
+		n+=s-'0';
+	}
+	cout << n << endl;
 	return 0;
 }
