@@ -2,6 +2,6 @@
 using namespace std;
 
 int main() {
-	cout << "AtCoder" << endl;
-	return 0;
+  cout << "AtCoder" << endl;
+  return 0;
 }

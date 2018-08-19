@@ -2,6 +2,6 @@
 using namespace std;
 
 int main() {
-	cout << "こんにちは" << endl;
-	cout << "AtCoder" << endl;
+  cout << "こんにちは" << endl;
+  cout << "AtCoder" << endl;
 }
