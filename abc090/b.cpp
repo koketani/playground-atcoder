@@ -1,28 +1,25 @@
 #include <bits/stdc++.h>
 using namespace std;
-
-/*
- * 10001
- * 1
- *
- */
-
-bool loop(int n) {
-  if ((n / 10000 == n % 10) && (((n % 10000) / 1000) == ((n % 100) / 10))) {
-    return true;
-  } else {
-    return false;
+ 
+int reverse(int i) {
+  int rev_i = 0;
+  while (i != 0) {
+    rev_i *= 10;
+    rev_i += i % 10;
+    i /= 10;
   }
+  return rev_i;
 }
-
+ 
 int main() {
   int a, b;
   cin >> a >> b;
   int num = 0;
   for (int i = a; i <= b; i++) {
-    if (loop(i)) {
-      num += 1;
+    if (reverse(i) == i) {
+      num++;
     }
   }
   cout << num << endl;
+  return 0;
 }
