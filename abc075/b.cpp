@@ -16,7 +16,7 @@ int main() {
         int x = 0;
         for (int k = i - 1; k <= i + 1; k++) {
           for (int l = j - 1; l <= j + 1; l++) {
-            if ((k < 0) or (j < 0) or (k > h) or (l > w)) {
+            if ((k < 0) or (j < 0) or (k >= h) or (l >= w)) {
               continue;
             }
             if (a[k][l] == '#') {
