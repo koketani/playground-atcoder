@@ -1,19 +1,16 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-// 10^9
-// 10^3 < 2^10
-// 10^3 < 2^30
-
-int log2(int x, int n) {
-  int y = 1;
-  for (int i = 1; i <= n; i++) {
-    y *= 2;
-    if (x % y != 0) {
-      return i - 1;
+int log2(int a, int y) {
+  int yy = 0;
+  while ((a&1) != 1) {
+    yy+=1;
+    a = a>>1;
+    if (yy > y) {
+      return y;
     }
   }
-  return n;
+  return yy;
 }
 
 int main() {
