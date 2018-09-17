@@ -5,19 +5,13 @@ int main() {
   int n;
   cin >> n;
   vector<int> a(n);
-  int sum = 0;
   for (int i = 0; i < n; i++) {
-    cin >> a[i];
-    sum += a[i];
+    cin >> a.at(i);
   }
-  int avg = sum / n;
+  int avg = accumulate(a.begin(), a.end(), 0) / a.size();
   for (int i = 0; i < n; i++) {
     int diff = a.at(i) - avg;
-    if (diff < 0) {
-      cout << -diff << endl;
-    } else {
-      cout << diff << endl;
-    }
+    cout << abs(diff) << endl;
   }
   return 0;
 }
