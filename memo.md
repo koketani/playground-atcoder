@@ -37,6 +37,9 @@ while (a>100) {
   * vector<string> a(h+2);
   * vector<string> a(n, "0");
   * vector<string, int> s{}, t{};
+  * a.push_back(make_pair(x,y));
+  * a[0].first, a[0].second
+  * vector<int> a{1,2,3};
 * function
 ```
 int hoge() {
