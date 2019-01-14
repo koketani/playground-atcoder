@@ -1,4 +1,7 @@
+# Progress
+
 * [AtCoder Programming Guide for beginners (APG4b)](https://beta.atcoder.jp/contests/apg4b)
+
 From 6th Aug 2018 to 21th Sep 2018
 
 * [AtCoder Beginners Selection](https://beta.atcoder.jp/contests/abs)
@@ -8,6 +11,7 @@ Introduction document is available in [introdction on qiita](https://qiita.com/d
 From 21th Sep 2018 to 29th Sep 2018.
 
 * [Programming Challenge Book in AtCoder](https://qiita.com/drken/items/e77685614f3c6bf86f44)
+
 From 1st Jan 2019 to ...
 
-To be continued from https://qiita.com/drken/items/e77685614f3c6bf86f44#%E4%BE%8B%E9%A1%8C-2-1-2lake-counting-poj-no2386
+To be continued from <https://qiita.com/drken/items/e77685614f3c6bf86f44#%E4%BE%8B%E9%A1%8C-2-1-2lake-counting-poj-no2386>
