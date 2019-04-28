@@ -14,4 +14,4 @@ From 21th Sep 2018 to 29th Sep 2018.
 
 From 1st Jan 2019 to ...
 
-To be continued from <https://qiita.com/drken/items/e77685614f3c6bf86f44#%E4%BE%8B%E9%A1%8C-2-1-2lake-counting-poj-no2386>
+To be continued from <https://qiita.com/drken/items/e77685614f3c6bf86f44#%E4%BE%8B%E9%A1%8C-2-1-3%E8%BF%B7%E8%B7%AF%E3%81%AE%E6%9C%80%E7%9F%AD%E8%B7%AF>
