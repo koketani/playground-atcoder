@@ -1,16 +1,11 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-// 500 * 500 * 250 * 499
-// 31250000000
-
-struct comp {
-  template <typename T> bool operator()(const T &l, const T &r) const {
-    if (l.first == r.first) {
-      return l.second > r.second;
-    } else {
-      return l.first < r.first;
-    }
+struct pair_hash {
+  size_t operator()(pair<int, int> const &other) const {
+    size_t h1 = hash<int>()(other.first);
+    size_t h2 = hash<int>()(other.second);
+    return h1 ^ h2;
   }
 };
 
@@ -18,7 +13,7 @@ int main() {
   int h, w;
   cin >> h >> w;
   pair<int, int> s, g;
-  set<pair<int, int>, comp> steps;
+  unordered_set<pair<int, int>, pair_hash> steps;
   for (int i = 0; i < h; i++) {
     for (int j = 0; j < w; j++) {
       char c;
@@ -38,13 +33,14 @@ int main() {
       }
     }
   }
-  map<pair<int, int>, int, comp> costs;
-  queue<pair<int, int>> nexts;
-  nexts.push(s);
+  unordered_map<pair<int, int>, int, pair_hash> costs;
+  // queue<pair<int, int>> nexts;
+  deque<pair<int, int>> nexts;
+  nexts.push_front(s);
   costs[s] = 0;
   while (!nexts.empty()) {
     pair<int, int> n = nexts.front();
-    nexts.pop();
+    nexts.pop_front();
     int cost = costs[n];
     vector<pair<int, int>> offsets = {
         {-1, 0},
@@ -52,21 +48,26 @@ int main() {
         {1, 0},
         {0, 1},
     };
-    pair<int, int> p;
     for (auto offset : offsets) {
-      p = {n.first + offset.first, n.second + offset.second};
-      if (p.first > h-1 || p.second > w-1 || p.first < 0 || p.second < 0) {
-	continue;
+      pair<int, int> p = {n.first + offset.first, n.second + offset.second};
+      if (p.first > h - 1 || p.second > w - 1 || p.first < 0 || p.second < 0) {
+        continue;
       }
-      if (steps.find(p) != steps.end()) {
-        if (costs.find(p) == costs.end() || costs[p] > cost) {
-          costs[p] = cost;
-          nexts.push(p);
-        }
-      } else {
-        if (costs.find(p) == costs.end() || costs[p] > cost + 1) {
-          costs[p] = cost + 1;
-          nexts.push(p);
+      int new_cost = cost;
+      bool low = false;
+      if (steps.find(p) == steps.end()) {
+        new_cost++;
+        low = true;
+      }
+      if (new_cost > 2) {
+        continue;
+      }
+      if (costs.find(p) == costs.end() || costs[p] > new_cost) {
+        costs[p] = new_cost;
+        if (low) {
+          nexts.push_back(p);
+        } else {
+          nexts.push_front(p);
         }
       }
     }
