@@ -14,6 +14,7 @@ int main() {
   cin >> h >> w;
   pair<int, int> s, g;
   unordered_set<pair<int, int>, pair_hash> steps;
+  unordered_set<pair<int, int>, pair_hash> passed;
   for (int i = 0; i < h; i++) {
     for (int j = 0; j < w; j++) {
       char c;
@@ -33,49 +34,43 @@ int main() {
       }
     }
   }
-  unordered_map<pair<int, int>, int, pair_hash> costs;
-  // queue<pair<int, int>> nexts;
-  deque<pair<int, int>> nexts;
-  nexts.push_front(s);
-  costs[s] = 0;
-  while (!nexts.empty()) {
-    pair<int, int> n = nexts.front();
-    nexts.pop_front();
-    int cost = costs[n];
-    vector<pair<int, int>> offsets = {
-        {-1, 0},
-        {0, -1},
-        {1, 0},
-        {0, 1},
-    };
-    for (auto offset : offsets) {
-      pair<int, int> p = {n.first + offset.first, n.second + offset.second};
-      if (p.first > h - 1 || p.second > w - 1 || p.first < 0 || p.second < 0) {
-        continue;
-      }
-      int new_cost = cost;
-      bool low = false;
-      if (steps.find(p) == steps.end()) {
-        new_cost++;
-        low = true;
-      }
-      if (new_cost > 2) {
-        continue;
-      }
-      if (costs.find(p) == costs.end() || costs[p] > new_cost) {
-        costs[p] = new_cost;
-        if (low) {
-          nexts.push_back(p);
+  queue<pair<int, int>> nexts;
+  nexts.push(s);
+  passed.insert(s);
+  for (int i = 0; i < 3; i++) {
+    queue<pair<int, int>> newq;
+    while (!nexts.empty()) {
+      pair<int, int> n = nexts.front();
+      nexts.pop();
+      vector<pair<int, int>> offsets = {
+          {-1, 0},
+          {0, -1},
+          {1, 0},
+          {0, 1},
+      };
+      for (auto offset : offsets) {
+        pair<int, int> p = {n.first + offset.first, n.second + offset.second};
+        if (p.first > h - 1 || p.second > w - 1 || p.first < 0 ||
+            p.second < 0) {
+          continue;
+        }
+        if (p == g) {
+          cout << "YES" << endl;
+          return 0;
+        }
+        if (passed.find(p) != passed.end()) {
+          continue;
+        }
+        passed.insert(p);
+        if (steps.find(p) != steps.end()) {
+          nexts.push(p);
         } else {
-          nexts.push_front(p);
+          newq.push(p);
         }
       }
     }
+    nexts = newq;
   }
-  if (costs.find(g) != costs.end() && costs[g] <= 2) {
-    cout << "YES" << endl;
-  } else {
-    cout << "NO" << endl;
-  }
+  cout << "NO" << endl;
   return 0;
 }
