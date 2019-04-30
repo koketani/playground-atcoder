@@ -1,42 +1,34 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-struct pair_hash {
-  size_t operator()(pair<int, int> const &other) const {
-    size_t h1 = hash<int>()(other.first);
-    size_t h2 = hash<int>()(other.second);
-    return h1 ^ h2;
-  }
-};
-
 int main() {
   int h, w;
   cin >> h >> w;
   pair<int, int> s, g;
-  unordered_set<pair<int, int>, pair_hash> steps;
-  unordered_set<pair<int, int>, pair_hash> passed;
+  unordered_set<int> steps;
+  unordered_set<int> passed;
   for (int i = 0; i < h; i++) {
     for (int j = 0; j < w; j++) {
       char c;
       cin >> c;
       switch (c) {
       case '.':
-        steps.insert({i, j});
+	steps.insert(i*w+j);
         break;
       case 's':
         s = {i, j};
-        steps.insert({i, j});
+	steps.insert(i*w+j);
         break;
       case 'g':
         g = {i, j};
-        steps.insert({i, j});
+	steps.insert(i*w+j);
         break;
       }
     }
   }
   queue<pair<int, int>> nexts;
   nexts.push(s);
-  passed.insert(s);
+  passed.insert(s.first*w+s.second);
   for (int i = 0; i < 3; i++) {
     queue<pair<int, int>> newq;
     while (!nexts.empty()) {
@@ -58,11 +50,11 @@ int main() {
           cout << "YES" << endl;
           return 0;
         }
-        if (passed.find(p) != passed.end()) {
+        if (passed.find(p.first*w+p.second) != passed.end()) {
           continue;
         }
-        passed.insert(p);
-        if (steps.find(p) != steps.end()) {
+        passed.insert(p.first*w+p.second);
+        if (steps.find(p.first*w+p.second) != steps.end()) {
           nexts.push(p);
         } else {
           newq.push(p);
