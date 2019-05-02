@@ -14,4 +14,4 @@ From 21th Sep 2018 to 29th Sep 2018.
 
 From 1st Jan 2019 to ...
 
-To be continued from <https://qiita.com/drken/items/e77685614f3c6bf86f44#%E4%BE%8B%E9%A1%8C-2-1-4%E7%89%B9%E6%AE%8A%E3%81%AA%E7%8A%B6%E6%85%8B%E3%81%AE%E5%88%97%E6%8C%99>
+To be continued from <https://qiita.com/drken/items/e77685614f3c6bf86f44#%E4%BE%8B%E9%A1%8C-2-2-2%E5%8C%BA%E9%96%93%E3%82%B9%E3%82%B1%E3%82%B8%E3%83%A5%E3%83%BC%E3%83%AA%E3%83%B3%E3%82%B0%E5%95%8F%E9%A1%8C>
