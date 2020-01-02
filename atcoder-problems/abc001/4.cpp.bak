@@ -1,0 +1,85 @@
+#include <algorithm>
+#include <iostream>
+#include <string>
+// #include <utility>
+// #include <vector>
+// #include <map>
+#include <set>
+
+int round_5(int n, bool right) {
+  if (right && n % 5 != 0) {
+    return n / 5 * 5 + 5;
+  } else {
+    return n / 5 * 5;
+  }
+}
+
+// bool is_wrapped(int s1, int e1, int s2, int e2) {}
+
+// std::pair<int, int> joined(std::pair<int, int> a, std::pair<int, int> b) {
+//   return make_
+// }
+
+// int main() {
+//   int n;
+//   std::cin >> n;
+//   // always sorted
+//   std::map<int, int> s;
+//   // std::map<int> e(n);
+//   for (int i = 0; i < n; i++) {
+//     std::string oneline;
+//     std::cin >> oneline;
+//     int ss, ee;
+//     ss = round_5(stoi(oneline.substr(0, 4)), false);
+//     ee = round_5(stoi(oneline.substr(5)), true);
+//     // s.bin
+//     auto nx = s.upper_bound(ss);
+//     if (nx == s.begin()) {
+//       s[ss] = ee;
+//       continue;
+//     }
+//     // auto pr = nx--;
+//
+//
+//     // if (nx != s.begin()) {
+//     //   auto pr = nx--;
+//     //   s.erase(pr);
+//     //   s[] =
+//     // }
+//     // if (nx->second <= ee) {
+//     //   int e1= nx->second;
+//     //   s.erase(nx);
+//     //   s[ss] = std::max(ee, e1);
+//     // }
+//     //it->first;
+//   }
+//   // sort(a.begin(), a.end(), std::greater<int>());
+//   // int sum = accumulate(a.begin(), a.end(), 0);
+//   // std::cout << "sum: " << sum << std::endl;
+//   // for (const auto &e : a) {
+//   //   std::cout << e << std::endl;
+//   // }
+//   return 0;
+// }
+int main() {
+  int n;
+  std::cin >> n;
+  // s1, e1, s2, e2, ...
+  std::set<int> t;
+  for (int i = 0; i < n; i++) {
+    std::string line;
+    std::cin >> line;
+    int s, e;
+    s = round_5(stoi(line.substr(0, 4)), false);
+    e = round_5(stoi(line.substr(5)), true);
+    // s.bin
+    // auto nx = s.upper_bound(s);
+    // if (nx == s.begin()) {
+    //   s[ss] = ee;
+    //   continue;
+    // }
+    auto s_it = t.find(s);
+    auto e_it = t.find(e);
+  }
+  return 0;
+}
