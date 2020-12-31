@@ -39,6 +39,12 @@ for (int i=0;i<100;i++){
 }
 ```
 
+```cpp
+for (const auto& e : v) {
+  cout << e << endl;
+}
+```
+
 * while statement
 
 ```cpp
@@ -95,3 +101,20 @@ int hoge() {
 * queue type
   * `q.front(), q.back()`
   * `q.push(3), q.pop()`
+
+* ternary operator
+  * `int z = (x > y) ? x : y;`
+
+* 0 padding
+
+```cpp
+std::cout << std::setfill('0') << std::setw(5) << 25;
+```
+
+* map
+  * `#include <map>`
+  * `map<int, string> a = { { 1, "one" }, { 2, "two" } } `
+
+* round
+  * `#include <cmath>`
+  * `(int)std::round(0.5)`
